@@ -20,7 +20,8 @@
 
 title: "Data Science Blog"
 email: "dallind34@gmail.com" 
-description: "Change the description so that it describes your blog" 
+description: "This is my data science blog for my STAT 386 class. 
+I hope it can have an emphasis in cybersecurity." 
 baseurl: "/Data-Science-Blog" # the name of the repository 
 url: "https:dallind34.github.io" #  change this to "https://<your-github-username>.github.io"
 image: /assets/images/headerimg.jpg
