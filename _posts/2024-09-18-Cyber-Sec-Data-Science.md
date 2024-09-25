@@ -3,7 +3,7 @@ layout: post
 title:  "Using Data Science to Improve Your Computer's Cybersecurity"
 author: Your name
 description: This article shows you how to capture your computer’s network traffic and spot any potential security issues. With tcpdump, you can quickly grab and save network data for analysis. Using simple data science techniques, you'll learn how to identify the most active IP addresses and protocols talking to your device.
-image: /assets/images/blog-image.jpg
+image: /assets/images/header2.png
 ---
 
 ## Introduction
@@ -40,10 +40,10 @@ Data science makes it easier to figure out which IP addresses your computer comm
 
 
 
-import pyshark
-import pandas as pd
-import matplotlib.pyplot as plt
-from collections import Counter
+    import pyshark
+    import pandas as pd
+    import matplotlib.pyplot as plt
+    from collections import Counter
 
     def analyze_pcap(pcap_file):
         data = []
