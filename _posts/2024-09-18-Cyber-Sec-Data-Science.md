@@ -39,11 +39,37 @@ This saves the captured packets to a file called capture.pcap in your current di
 Data science makes it easier to figure out which IP addresses your computer communicates with the most by analyzing network traffic. By looking at the source and destination IPs in the captured packets, you can count how often each one appears and rank the top IPs. Here’s a simple code snippet in python using the Counter to find the top 10 communicating IP addresses:
 
 
-'from collections import Counter
+```python
+import pyshark
 import pandas as pd
 import matplotlib.pyplot as plt
+from collections import Counter
 
-def analyze_traffic(df):
+def analyze_pcap(pcap_file):
+    data = []
+    capture = pyshark.FileCapture(pcap_file)
+    for packet in capture:
+        try:
+            if 'IP' in packet:
+                src_ip = packet.ip.src
+                dst_ip = packet.ip.dst
+                packet_length = int(packet.length)
+                protocol = packet.transport_layer 
+
+                data.append({
+                    'Source IP': src_ip,
+                    'Destination IP': dst_ip,
+                    'Length': packet_length,
+                    'Protocol': protocol
+                })
+        except AttributeError:   
+            pass
+
+    df = pd.DataFrame(data)
+    analyze_top_communicating_ips(df)
+    analyze_protocol_distribution(df)
+
+def analyze_top_communicating_ips(df):
     ip_counter = Counter(df['Source IP'].tolist() + df['Destination IP'].tolist())
     top_communicating_ips = pd.DataFrame(ip_counter.most_common(10), columns=['IP', 'Count'])
 
@@ -54,7 +80,12 @@ def analyze_traffic(df):
     plt.ylabel("Packet Count")
     plt.xticks(rotation=45)
     plt.tight_layout()
-    plt.show()'
+    plt.show()
+
+
+pcap_file = # Replace this with the path to your own PCAP file
+analyze_pcap(pcap_file)
+
 
 This code takes the list of source and destination IPs, counts how often each one is used, and then shows the top 10 in a bar chart. This way, you can easily see which IP addresses your computer is communicating with the most.
 
@@ -66,16 +97,17 @@ This code takes the list of source and destination IPs, counts how often each on
 Protocols, like TCP and UDP, play a big role in network security because they define how data is sent and received between computers. Monitoring which protocols are being used can help you spot unusual activity, such as unexpected protocols appearing in your network traffic. In the code below, we count how often each protocol shows up in the packet capture and visualize the results with a bar chart.
 
 
-'def analyze_traffic(df):
+```python
+def analyze_protocol_distribution(df):
     protocol_distribution = df['Protocol'].value_counts()
-
     plt.figure(figsize=(10, 6))
     protocol_distribution.plot(kind='bar')
     plt.title("Traffic by Protocol")
     plt.xlabel("Protocol")
     plt.ylabel("Packet Count")
     plt.tight_layout()
-    plt.show()'
+    plt.show()
+
 
 Be sure to look out for suspicious protocols such as Telnet, FTP, TFTP, and RDP, which transmit data without strong encryption.
 
