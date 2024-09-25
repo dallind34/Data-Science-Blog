@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Using Data Science to Improve Your Computer's Cybersecurity"
-author: Your name
+author: Dallin Draper
 description: This article shows you how to capture your computer’s network traffic and spot any potential security issues. With tcpdump, you can quickly grab and save network data for analysis. Using simple data science techniques, you'll learn how to identify the most active IP addresses and protocols talking to your device.
 image: /assets/images/header2.png
 ---
