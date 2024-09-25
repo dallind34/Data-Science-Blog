@@ -24,11 +24,11 @@ DISCLAIMER: A packet capture (PCAP) records the data your computer sends and rec
 
 To capture network packets using the command-line tool tcpdump, start by opening your terminal. Run the following basic command to capture packets on your network interface:
 
-'sudo tcpdump -i any'
+    'sudo tcpdump -i any'
 
 This command captures all traffic on all interfaces. To limit the capture to a specific interface, replace "any" with your interface name (e.g., eth0 for Ethernet). To save the captured data as a pcap file for later analysis, use the -w option:
 
-'sudo tcpdump -i any -w capture.pcap'
+    'sudo tcpdump -i any -w capture.pcap'
 
 This saves the captured packets to a file called capture.pcap in your current directory. You can now open this file using tools like tcpdump or Wireshark for further analysis. To stop the capture at any time, press Ctrl+C.
 
@@ -124,6 +124,7 @@ Monitoring top IP addresses and protocols helps you quickly spot unusual activit
 
 In conclusion, using data science with packet captures is a powerful way to keep your computer safe by analyzing network traffic and spotting potential threats. Regularly monitoring your network and experimenting with different analytics can help you catch unusual activity early and strengthen your cybersecurity. Stay proactive to protect your system from unauthorized access and security risks.
 
+I encourage you to give this a try! Capture network traffic from a network you're authorized to monitor over several days to establish a baseline of normal activity. By doing this, you'll be better equipped to recognize anomalies and unusual patterns in your future network traffic.
 
 
 
