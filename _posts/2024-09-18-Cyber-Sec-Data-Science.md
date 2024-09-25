@@ -36,7 +36,7 @@ This saves the captured packets to a file called capture.pcap in your current di
 
 ## Analyzing Packet Captures Using Python
 
-Data science makes it easier to figure out which IP addresses your computer communicates with the most by analyzing network traffic. By looking at the source and destination IPs in the captured packets, you can count how often each one appears and rank the top IPs. Here’s a simple code snippet in python using the Counter to find the top 10 communicating IP addresses:
+Data science makes it easier to figure out which IP addresses your computer communicates with the most by analyzing network traffic. Using Pyshark, a Python library for capturing and analyzing network packets, you can easily filter and inspect packet data. By looking at the source and destination IPs in the captured packets, you can count how often each one appears and rank the top IPs. Here’s a simple code snippet in python using the Counter to find the top 10 communicating IP addresses:
 
 
 
@@ -88,6 +88,8 @@ Data science makes it easier to figure out which IP addresses your computer comm
 
 
 This code takes the list of source and destination IPs, counts how often each one is used, and then shows the top 10 in a bar chart. This way, you can easily see which IP addresses your computer is communicating with the most.
+
+Watch for unfamiliar IPs, especially those from unexpected locations or showing high activity. Use IP lookup tools to check their origin and reputation. If an IP seems suspicious, block it to prevent unauthorized access.
 
 
 
