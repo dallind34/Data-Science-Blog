@@ -11,18 +11,18 @@ image: /assets/images/header2.png
 In today’s digital landscape, cybersecurity is more critical than ever. One effective way to safeguard your system is by monitoring network traffic to detect unusual or unauthorized activity. Packet captures, or PCAPs, allow you to record and analyze the data your computer sends and receives, giving you visibility into network communications. By using data science techniques, you can gain insights into which IP addresses your computer talks to the most and identify potential vulnerabilities.
 
 
-
 ## What is a PCAP?
 
-A packet capture (PCAP) records the data your computer sends and receives, helping you see network activity and detect issues. tcpdump is a popular tool for capturing this data directly from your terminal. While other tools like Wireshark offer more visual interfaces, tcpdump is more lightweight and just as effective.
+A packet capture (PCAP) records the data your computer sends and receives, helping you see network activity and detect issues. tcpdump is a popular tool for capturing this data directly from your terminal. Other tools like Wireshark offer more visual interfaces but tcpdump is more lightweight and just as effective.
 
-DISCLAIMER: A packet capture (PCAP) records the data your computer sends and receives, helping you see network activity, but it should only be used on networks where you have permission to monitor the network. Sometimes unauthorized captures can violate privacy laws.
+Here is a website with more information about PCAPs [Link](https://www.cloudflare.com/learning/network-layer/what-is-a-packet/)
 
+DISCLAIMER: A packet capture (PCAP) should only be used on networks where you have permission to monitor the network. Sometimes unauthorized captures can violate privacy laws.
 
 
 ## How to Capture Network Packets
 
-To capture network packets using the command-line tool tcpdump, start by opening your terminal. Run the following basic command to capture packets on your network interface:
+To capture network packets using the command-line tool tcpdump, start by opening your terminal. Run the following command to capture packets on your network interface:
 
     'sudo tcpdump -i any'
 
@@ -89,7 +89,7 @@ Data science makes it easier to figure out which IP addresses your computer comm
 
 This code takes the list of source and destination IPs, counts how often each one is used, and then shows the top 10 in a bar chart. This way, you can easily see which IP addresses your computer is communicating with the most.
 
-Watch for unfamiliar IPs, especially those from unexpected locations or showing high activity. Use IP lookup tools to check their origin and reputation. If an IP seems suspicious, block it to prevent unauthorized access.
+Watch for unfamiliar IPs, especially those from unexpected locations or showing high activity. You can use an IP lookup tool to check their origin and reputation. If an IP seems suspicious, block it to prevent unauthorized access.
 
 
 
@@ -112,6 +112,7 @@ Protocols, like TCP and UDP, play a big role in network security because they de
 
 Be sure to look out for suspicious protocols such as Telnet, FTP, TFTP, and RDP, which transmit data without strong encryption.
 
+![Figure](/Documents/image.png)
 
 
 ## Why Does This Matter?
