@@ -112,7 +112,7 @@ Protocols, like TCP and UDP, play a big role in network security because they de
 
 Be sure to look out for suspicious protocols such as Telnet, FTP, TFTP, and RDP, which transmit data without strong encryption.
 
-![Figure](/Documents/image.png)
+![Figure](/assets/images/image.png)
 
 
 ## Why Does This Matter?
