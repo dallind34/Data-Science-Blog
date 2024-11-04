@@ -1,0 +1,82 @@
+---
+layout: post
+title:  "How to create a blog post"
+author: Dallin Draper
+description:  
+image: "none"
+---
+
+
+##What is Tech House?
+
+Tech house is a genre that blends the danceable beats of classic house music with the darker, more minimalistic genre techno. The main features of the genre are deep basslines, classic house rhythms, and catchy vocal samples. It’s also somewhat formulaic, with most tracks moving through buildups to create tension and bass drops to keep energy high. As someone who makes tech house music, the formulaic nature of the genre is exactly why I wanted to analyze it to see which elements really make a track stand out.
+
+
+##Motivating Question
+
+The main question I am hoping to answer with this analysis is: What features of a tech house song contribute most to its success on Spotify playlists? By analyzing a dataset of songs from 3 of the most popular tech house Spotify playlists, I hope to find out which musical elements are most associated with a song's popularity. This knowledge could help producers and offer insights into how specific musical features might enhance a tech house song's chances of climbing the ranks of tech house Spotify playlists. 
+
+
+##Data Collection
+
+I gathered my dataset using the Spotify API and pulled information from three of Spotify’s most popular tech house playlists. This gave me access to detailed audio features for each track, allowing me to analyze over 300 tech house songs based on characteristics like Tempo, Danceability, Energy, Loudness, Valence, and Speechiness.
+
+
+##Variable Information
+
+Danceability: Measures how suitable a track is for dancing, based on elements like tempo, rhythm stability, and beat strength.
+
+Energy: Captures the intensity and activity of the track, with higher values indicating more energetic songs.
+
+Loudness: Average loudness in decibels (dB).
+
+Tempo: The track’s speed measured in beats per minute (BPM) (typically around 120-130 BPM for tech house).
+
+Valence: Measures the mood of the track. Higher values indicate happier or more upbeat tones, while lower values suggest darker tones.
+
+Speechiness: Assesses the presence of spoken words or vocal samples in the track. Tracks with more spoken elements can have a higher speechiness score.
+
+
+##Analysis
+ 
+To get a quick sense of the musical characteristics shared by the most popular tech house songs on Spotify’s top playlists, I looked at some basic statistics:
+
+Most Popular Key: The most common key among these top tracks was C♯ / D♭. This is a very low key for house music and is consistent with the idea that tech house focuses on deep basslines.
+
+Average Tempo: The average tempo for these tracks is around 128 BPM. My inital assumption that the average house song would be around 124 BPM so tech house might be slightly faster.
+
+Most Popular Mode: Major mode was the most common among these songs. This really surprised me and I amost wonder if the Spotify data is correct because most tech house songs I know are in minor or phrygian. 
+
+
+
+##Exploratory Data Analysis (EDA)
+
+#Correlation Matrix
+
+To understand how different musical elements relate to each other in these top tech house tracks, I generated a correlation matrix. Here are some key takeaways:
+
+Danceability and Valence: There’s a slight positive correlation between Danceability and Valence (musical positivity). This makes sense, as tracks that are more danceable often carry a lighter, more upbeat feel, which may appeal to a broad audience on playlists.
+
+Loudness and Energy: Loudness is moderately correlated with Energy, which aligns with expectations—louder tracks tend to feel more intense and energetic.
+
+These correlations help confirm some fundamental traits in popular tech house, but they don’t fully explain what makes certain tracks more successful on Spotify playlists, which led me to explore more advanced analysis.
+
+####### CORRELATION MATRIX GRAPH ##########
+
+#Linear Regression Model
+
+I first tried a linear regression model to predict popularity using features like Danceability, Energy, and Speechiness. However, the model didn’t perform well, with an R-squared of just 0.03, meaning it could only explain 3% of the variation in popularity. This suggests that the relationship between these features and popularity is more complex and likely non-linear, so a simple linear model isn’t enough to capture what drives popularity in tech house tracks.
+
+Code Chunk Suggestion: Display the linear regression code and include the model’s R-squared value and coefficient table to show which features had the strongest (albeit limited) linear impact on popularity.
+
+#Random Forest Model
+
+The Random Forest model performed better and showed a higher R-squared. This improvement supports the idea that non-linear relationships exist between the features and popularity within these curated playlists.
+
+Code Chunk Suggestion: Include code for the Random Forest model along with output for the R-squared value and feature importance rankings.
+
+#Feature Importances
+
+The feature importance plot from the Random Forest model highlighted Danceability, Energy, and Speechiness as the most influential features in determining a song’s popularity:
+
+Graph Suggestion: Include a bar plot for feature importances from the Random Forest model, as it clearly highlights the features with the greatest influence on popularity.
