@@ -67,7 +67,7 @@ Paths to files should also be referenced with the `site.url` and `site.baseurl` 
 ## Adding Images
 *In the examples below, if your image ends with `.png` or `.JPEG`, use the appropriate extension instead of `.jpg`.*  
 
-Images for the blog will generally but put into the `assets/images` folder.  (You can also create a subfolder for images, but you will need to include the subfolder name in the reference link.) 
+Images for the blog will generally but put into the `assets/images` folder.  (You can also create a subfolder for images, but youwill need to include the subfolder name in the reference link.) 
 
 Markdown syntax for including images is `![Fig Name](path/to/image)`.  For example:
 ```
