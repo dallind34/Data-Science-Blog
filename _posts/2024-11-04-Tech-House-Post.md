@@ -118,7 +118,11 @@ Most Popular Mode: Major mode was the most common among these songs. This really
   
 I first tried a linear regression model to predict popularity using features like Danceability, Energy, and Speechiness. However, the model didn’t perform well, with an R-squared of just 0.03, meaning it could only explain 3% of the variation in popularity. This suggests that the relationship between these features and popularity is more complex and likely non-linear, so a simple linear model isn’t enough to capture what drives popularity in tech house tracks.
 
-![Figure]("/assets/images/linear_regression.jpg"")
+<figure>
+<img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/linear_regression.jpg" alt="">
+<figcaption> caption <figcaption>
+</figure>
+
 
 # Random Forest Model
 
@@ -130,7 +134,10 @@ Code Chunk Suggestion: Include code for the Random Forest model along with outpu
 
 The feature importance plot from the Random Forest model highlighted Danceability, Energy, and Speechiness as the most influential features in determining a song’s popularity:
 
-![Random Forest Graph](Data-Science-Blog/assets/images/forest.jpg)
+<figure>
+<img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/forest.jpg" alt="">
+<figcaption> caption <figcaption>
+</figure>
 
 
 ## Conclusion
