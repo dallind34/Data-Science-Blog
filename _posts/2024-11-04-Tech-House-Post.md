@@ -115,10 +115,10 @@ Most Popular Mode: Major mode was the most common among these songs. This really
 ## Exploratory Data Analysis (EDA)
 
 # Linear Regression Model
-
+  
 I first tried a linear regression model to predict popularity using features like Danceability, Energy, and Speechiness. However, the model didn’t perform well, with an R-squared of just 0.03, meaning it could only explain 3% of the variation in popularity. This suggests that the relationship between these features and popularity is more complex and likely non-linear, so a simple linear model isn’t enough to capture what drives popularity in tech house tracks.
 
-![Figure](/assets/images/linear_regression.jpg)
+![Figure]("/assets/images/linear_regression.jpg"")
 
 # Random Forest Model
 
