@@ -130,7 +130,7 @@ Code Chunk Suggestion: Include code for the Random Forest model along with outpu
 
 The feature importance plot from the Random Forest model highlighted Danceability, Energy, and Speechiness as the most influential features in determining a song’s popularity:
 
-![Random Forest Graph](/assets/images/forest.jpg)
+![Random Forest Graph](Data-Science-Blog/assets/images/forest.jpg)
 
 
 ## Conclusion
