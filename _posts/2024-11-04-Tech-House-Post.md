@@ -108,14 +108,12 @@ Most Popular Key: The most common key among these top tracks was C♯ / D♭. Th
 
 <figure>
     <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/key.jpg" alt="">
-    <figcaption> caption </figcaption>
 </figure>
 
 Average Tempo: The average tempo for these tracks is around 128 BPM. My inital assumption that the average house song would be around 124 BPM so tech house might be slightly faster.
 
 <figure>
     <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/tempo.jpg" alt="">
-    <figcaption> caption </figcaption>
 </figure>
 
 Most Popular Mode: Major mode was the most common among these songs. This really surprised me and I amost wonder if the Spotify data is correct because most tech house songs I know are in minor or phrygian. 
@@ -129,7 +127,6 @@ I first tried a linear regression model to predict popularity using features lik
 
 <figure>
     <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/linear_regression.jpg" alt="">
-    <figcaption> caption </figcaption>
 </figure>
 
 
@@ -145,7 +142,6 @@ The feature importance plot from the Random Forest model highlighted Danceabilit
 
 <figure>
     <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/forest.jpg" alt="">
-    <figcaption> caption </figcaption>
 </figure>
 
 
