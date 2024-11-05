@@ -106,7 +106,17 @@ To get a quick sense of the musical characteristics shared by the most popular t
 
 Most Popular Key: The most common key among these top tracks was C♯ / D♭. This is a very low key for house music and is consistent with the idea that tech house focuses on deep basslines.
 
+<figure>
+    <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/key.jpg" alt="">
+    <figcaption> caption <figcaption>
+</figure>
+
 Average Tempo: The average tempo for these tracks is around 128 BPM. My inital assumption that the average house song would be around 124 BPM so tech house might be slightly faster.
+
+<figure>
+    <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/tempo.jpg" alt="">
+    <figcaption> caption <figcaption>
+</figure>
 
 Most Popular Mode: Major mode was the most common among these songs. This really surprised me and I amost wonder if the Spotify data is correct because most tech house songs I know are in minor or phrygian. 
 
