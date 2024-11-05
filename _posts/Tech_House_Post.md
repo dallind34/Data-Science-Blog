@@ -1,125 +1,139 @@
 ---
 layout: post
 title:  "How to create a blog post"
-author: Shannon Tass
-description: A sample post with instructions and tips on how to create a new blog post.   
-image: "/assets/images/image5.jpg"
+author: Dallin Draper
+description: "hey" 
+image: 
 ---
 
-## Steps for creating a new post.  
 
-* Create a new file in the `_posts` folder called `YYYY-MM-DD-post-name.md`, where YYYY is the year (2023), MM numeric month (01-12), and DD is the numeric day of the month (01-31).  The `post-name` is a short name for the new post with `-` between words.  **You must use this name convention for all new posts.**  
+##What is Tech House?
 
-*  Make the YML heading.  All pages in the site need to start with a YML heading.  For posts you should use the following header:
-```
----
-layout: post
-title:  "Post Name"
-author: Your name
-description: Short yet informative description
-image: /assets/images/blog-image.jpg
----
-```
-* For this theme, the layout should stay as `post`.   All the other fields should be updated with the information for your particular blog post.  The blog image should be a `.jpg` or `.png` file that you should add to the folder `assets/images`.  Don't make it too large or the page will take longer to load (500-800 KB is a good size).  Leave the file path as `/assets/images/` in the header area. 
-
-* Write the body of the blog using markdown.  There are a lot of references for markdown available.  I like the [Markdown Guide](https://www.markdownguide.org) because many of the examples show both the markdown and the html code.  There are separate pages for [basic syntax](https://www.markdownguide.org/basic-syntax/), [extended syntax](https://www.markdownguide.org/extended-syntax/), and a [cheatsheet](https://www.markdownguide.org/cheat-sheet/) for quick reference. 
-
-* You can also use html code snippets along with the markdown.  Often, using html will give you a little more control and flexibility as demonstrated below.
-
-This is a change
----
----
-
-### Links 
-
-To create a link (internal or external), enclose the link text in brackets (e.g., [Statistics Department]) and then follow it immediately with the URL in parentheses (e.g., (https://statistics.byu.edu)).
-
-For example:
-```
-{% raw %}My favorite department at BYU is the [Statistics Department](https://statistics.byu.edu).{% endraw %}
-```
-My favorite department at BYU is the [Statistics Department](https://statistics.byu.edu)
+Tech house is a genre that blends the danceable beats of classic house music with the darker, more minimalistic genre techno. The main features of the genre are deep basslines, classic house rhythms, and catchy vocal samples. It’s also somewhat formulaic, with most tracks moving through buildups to create tension and bass drops to keep energy high. As someone who makes tech house music, the formulaic nature of the genre is exactly why I wanted to analyze it to see which elements really make a track stand out.
 
 
-If you want external links to open in a separate window, you will need to use html code with `target="_blank"` inside the `a` tag. 
+##Motivating Question
 
-For example:
-```
-My favorite department at BYU is the <a href="https:statistics.byu.edu" target="_blank">Statistics Department</a>
-```
-My favorite department at BYU is the <a href="https:statistics.byu.edu" target="_blank">Statistics Department</a>
+The main question I am hoping to answer with this analysis is: What features of a tech house song contribute most to its success on Spotify playlists? By analyzing a dataset of songs from 3 of the most popular tech house Spotify playlists, I hope to find out which musical elements are most associated with a song's popularity. This knowledge could help producers and offer insights into how specific musical features might enhance a tech house song's chances of climbing the ranks of tech house Spotify playlists. 
 
 
-----
-----
+##Data Collection
 
-## Internal Links and Files
+#Ethics
 
-If you want to have a link that points to another location on your site or if you want to include a file (such as an image or video) you must use the `site.url` and `site.baseurl` variables when making the link reference.  For example, this link to pointing to the [About]({{site.url}}/{{site.baseurl}}/about) page is coded as:
-```
-[About]({% raw %}{{site.url}}/{{site.baseurl}}/about){% endraw %}
-```
-Paths to files should also be referenced with the `site.url` and `site.baseurl` variables (see the section on **Adding Images**).
+I used the official Spotify API, which is an approved way to access Spotify’s music data without any sketchy workarounds. By sticking to Spotify’s usage policies, I was able to pull detailed info on audio features for tech house tracks while staying within their terms of service. This approach let me gather the data I needed responsibly, without any unauthorized scraping or misuse.
 
----
----
+Here’s a quick step-by-step guide on using the Spotify API to create a custom dataset. I gathered my dataset using this process, pulling information from three of Spotify’s most popular tech house playlists. This approach allowed me to analyze over 300 tech house songs, focusing on characteristics like Tempo, Danceability, Energy, Loudness, Valence, and Speechiness.
 
-## Adding Images
-*In the examples below, if your image ends with `.png` or `.JPEG`, use the appropriate extension instead of `.jpg`.*  
+#Packages
 
-Images for the blog will generally but put into the `assets/images` folder.  (You can also create a subfolder for images, but you will need to include the subfolder name in the reference link.) 
+In Python, I used requests to interact with the Spotify API, pandas to structure and analyze the data, and json to handle Spotify’s JSON data format. Using these packages made it easy to request, process, and store data for analysis.
 
-Markdown syntax for including images is `![Fig Name](path/to/image)`.  For example:
-```
-{% raw %}![Figure]({{site.url}}/{{site.baseurl}}/assets/images/image_name.jpg){% endraw %}
-```
-![Figure]({{site.url}}/{{site.baseurl}}/assets/images/image5.jpg)
+#Step 1:Set Up a Spotify Developer Account
 
----
----
+- Go to the Spotify Developer Dashboard and log in or create a Spotify account.
 
-### Resizing images
+- In the dashboard, create a new application to access your API credentials, which include your Client ID and Client Secret. Keep these secure, as they allow access to the API.
 
-The image I added in the previous section seems a bit large for this post.  Unfortunately,
-there isn't a good way to resize images with markdown, so if you need to resize an image, use html instead of markdown and specify the width in the style parameter as follows:
+#Step 2: Authenticate and Get an Access Token
 
-```
-{% raw %}<img src="{{site.url}}/{{site.baseurl}}/assets/images/image_name.jpg" alt="" style="width:300px;"/>{% endraw %}
-```
+Use the requests library in Python to exchange your credentials for an access token. This token will be used to authorize your data requests.
 
-(Example with width set to 300 pixels)
-<img src="{{site.url}}/{{site.baseurl}}/assets/images/image5.jpg" alt="" style="width:300px;"/>
+Here’s some example code:
+
+    import spotipy
+    from spotipy.oauth2 import SpotifyClientCredentials
+    import pandas as pd
+
+    # Replace these with your own Spotify API credentials
+    client_id = 'YOUR_CLIENT_ID'
+    client_secret = 'YOUR_CLIENT_SECRET'
+
+    auth_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
+    sp = spotipy.Spotify(auth_manager=auth_manager)
+
+#Step 3: Choose a Playlist and Get Data
+
+- Use the playlist’s unique ID in your URL to access track data. 
+
+- Use the /playlists/{playlist_id}/tracks endpoint to retrieve track information and /audio-features for detailed audio metrics.
+
+Here's some example code:
+
+    playlist_id = 'YOUR_PLAYLIST_ID'
+    base_url = f'https://api.spotify.com/v1/playlists/{playlist_id}/tracks'
+    response = requests.get(base_url, headers=headers)
+    tracks = response.json()
+
+#Step 4: Get Features From Each Track
+
+- For each track, use its unique track ID to request additional details from the /audio-features endpoint.
+
+- This allowed me to access audio features for each song such as Tempo, Danceability, Energy, Loudness, Valence, and Speechiness.
+
+    track_id = 'YOUR_TRACK_ID'
+    features_url = f'https://api.spotify.com/v1/audio-features/{track_id}'
+    
+#Step 5: Organize the Data
+
+- Store the data in a structured format using a pandas DataFrame, then save it as a CSV for further analysis.
+
+    import pandas as pd
+
+    data = {'Track Name': track_name, 'Tempo': tempo, 'Danceability': danceability, ...}
+    df = pd.DataFrame(data)
+    df.to_csv('tech_house_tracks.csv', index=False)
 
 
-(Example with width set to 100 pixels)
-<img src="{{site.url}}/{{site.baseurl}}/assets/images/image5.jpg" alt="" style="width:100px;"/>
+##Variable Information
+
+Danceability: Measures how suitable a track is for dancing, based on elements like tempo, rhythm stability, and beat strength.
+
+Energy: Captures the intensity and activity of the track, with higher values indicating more energetic songs.
+
+Loudness: Average loudness in decibels (dB).
+
+Tempo: The track’s speed measured in beats per minute (BPM) (typically around 120-130 BPM for tech house).
+
+Valence: Measures the mood of the track. Higher values indicate happier or more upbeat tones, while lower values suggest darker tones.
+
+Speechiness: Assesses the presence of spoken words or vocal samples in the track. Tracks with more spoken elements can have a higher speechiness score.
+
+
+##Analysis
+ 
+To get a quick sense of the musical characteristics shared by the most popular tech house songs on Spotify’s top playlists, I looked at some basic statistics:
+
+Most Popular Key: The most common key among these top tracks was C♯ / D♭. This is a very low key for house music and is consistent with the idea that tech house focuses on deep basslines.
+
+Average Tempo: The average tempo for these tracks is around 128 BPM. My inital assumption that the average house song would be around 124 BPM so tech house might be slightly faster.
+
+Most Popular Mode: Major mode was the most common among these songs. This really surprised me and I amost wonder if the Spotify data is correct because most tech house songs I know are in minor or phrygian. 
 
 
 
----
----
----
+##Exploratory Data Analysis (EDA)
 
-## Troubleshooting
+#Linear Regression Model
 
-Here are some things to keep in mind if your blog appearance isn't going as you planned:
+I first tried a linear regression model to predict popularity using features like Danceability, Energy, and Speechiness. However, the model didn’t perform well, with an R-squared of just 0.03, meaning it could only explain 3% of the variation in popularity. This suggests that the relationship between these features and popularity is more complex and likely non-linear, so a simple linear model isn’t enough to capture what drives popularity in tech house tracks.
 
-**Problem:  The blog post that I created isn't appearing**
+![Figure](/assets/images/linear_regression.jpg)
 
-Possible Solutions: 
-  - Check your date. GitHub pages won't display blog posts with future dates
-  - Check the yaml header.  If there are any special characters in any of the fields, you need to use quotes around the entire field entry.  The most common culprit is the description.  If you're having trouble, try putting quotes around the entire description
+#Random Forest Model
 
----
+The Random Forest model performed better and showed a higher R-squared. This improvement supports the idea that non-linear relationships exist between the features and popularity within these curated playlists.
 
-**Problem:  I know that I made changes to a blog post but the changes aren't appearing**
+Code Chunk Suggestion: Include code for the Random Forest model along with output for the R-squared value and feature importance rankings.
 
-Possible Solution:
-  - Check the header.  If there are any special characters in any of the fields, you need to use quotes around the entire field entry.  The most common culprit is the description.  If you're having trouble, try putting quotes around the entire description.
+#Feature Importances
 
----
+The feature importance plot from the Random Forest model highlighted Danceability, Energy, and Speechiness as the most influential features in determining a song’s popularity:
 
-**Problem:  My entire blog has weird formatting**
+Graph Suggestion: Include a bar plot for feature importances from the Random Forest model, as it clearly highlights the features with the greatest influence on popularity.
 
-Possible Solution:
-  - Usually this is an address problem.  Double check your url and baseurl in the `_config` file
+
+## Conclusion
+
+Using the Spotify API was a simple way to get detailed data on tech house tracks. My analysis showed that Danceability, Speechiness, and Energy play big roles in a song’s popularity. Tracks with strong beats and catchy vocal hooks tend to perform better on playlists. For tech house fans or producers, it’s cool to see which elements can make a track stand out!
+
