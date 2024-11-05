@@ -71,9 +71,9 @@ Images for the blog will generally but put into the `assets/images` folder.  (Yo
 
 Markdown syntax for including images is `![Fig Name](path/to/image)`.  For example:
 ```
-{% raw %}![Figure]({{dallind34.github.io}}/{{Data-Science-Blog}/assets/images/forest.jpg){% endraw %}
+{% raw %}![Figure]({{dallind34.github.io}}/{{Data-Science-Blog}}/assets/images/forest.jpg){% endraw %}
 ```
-![Figure]({{dallind34.github.io}}/{{Data-Science-Blog}/assets/images/forest.jpg)
+![Figure]({{dallind34.github.io}}/{{Data-Science-Blog}}/assets/images/forest.jpg)
 
 ---
 ---
