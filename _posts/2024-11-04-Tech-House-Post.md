@@ -3,7 +3,7 @@ layout: post
 title:  "Tech House"
 author: Dallin Draper
 description: A sample post with instructions and tips on how to create a new blog post. 
-image: "/assets/images/image5.jpg"
+image: "/assets/images/dj.jpg"
 ---
 
 
@@ -17,13 +17,13 @@ Tech house is a genre that blends the danceable beats of classic house music wit
 The main question I am hoping to answer with this analysis is: What features of a tech house song contribute most to its success on Spotify playlists? By analyzing a dataset of songs from 3 of the most popular tech house Spotify playlists, I hope to find out which musical elements are most associated with a song's popularity. This knowledge could help producers and offer insights into how specific musical features might enhance a tech house song's chances of climbing the ranks of tech house Spotify playlists. 
 
 
-# Data Collection
+# Data Collection & Tutorial
 
 ## Ethics
 
 I used the official Spotify API, which is an approved way to access Spotify’s music data without any sketchy workarounds. By sticking to Spotify’s usage policies, I was able to pull detailed info on audio features for tech house tracks while staying within their terms of service. This approach let me gather the data I needed responsibly, without any unauthorized scraping or misuse.
 
-Here’s a quick step-by-step guide on using the Spotify API to create a custom dataset. I gathered my dataset using this process, pulling information from three of Spotify’s most popular tech house playlists. This approach allowed me to analyze over 300 tech house songs, focusing on characteristics like Tempo, Danceability, Energy, Loudness, Valence, and Speechiness.
+Here’s a step-by-step guide on using the Spotify API to create a custom dataset. I gathered my dataset using this process:
 
 ## Packages
 
@@ -71,18 +71,18 @@ Here's some example code:
 
 - This allowed me to access audio features for each song such as Tempo, Danceability, Energy, Loudness, Valence, and Speechiness.
 
-    track_id = 'YOUR_TRACK_ID'
-    features_url = f'https://api.spotify.com/v1/audio-features/{track_id}'
+        track_id = 'YOUR_TRACK_ID'
+        features_url = f'https://api.spotify.com/v1/audio-features/{track_id}'
     
 ### Step 5: Organize the Data
 
 - Store the data in a structured format using a pandas DataFrame, then save it as a CSV for further analysis.
 
-    import pandas as pd
+        import pandas as pd
 
-    data = {'Track Name': track_name, 'Tempo': tempo, 'Danceability': danceability, ...}
-    df = pd.DataFrame(data)
-    df.to_csv('tech_house_tracks.csv', index=False)
+        data = {'Track Name': track_name, 'Tempo': tempo, 'Danceability': danceability, ...}
+        df = pd.DataFrame(data)
+        df.to_csv('tech_house_tracks.csv', index=False)
 
 
 # Variable Information
@@ -102,7 +102,7 @@ Speechiness: Assesses the presence of spoken words or vocal samples in the track
 
 # Analysis
  
-To get a quick sense of the musical characteristics shared by the most popular tech house songs on Spotify’s top playlists, I looked at some basic statistics:
+To get a sense of the musical characteristics shared by the most popular tech house songs on Spotify’s top playlists, I looked at some basic statistics:
 
 Most Popular Key: The most common key among these top tracks was C♯ / D♭. This is a very low key for house music and is consistent with the idea that tech house focuses on deep basslines.
 
@@ -123,7 +123,7 @@ Most Popular Mode: Major mode was the most common among these songs. This really
 
 ### Linear Regression Model
   
-I first tried a linear regression model to predict popularity using features like Danceability, Energy, and Speechiness. However, the model didn’t perform well, with an R-squared of just 0.03, meaning it could only explain 3% of the variation in popularity. This suggests that the relationship between these features and popularity is more complex and likely non-linear, so a simple linear model isn’t enough to capture what drives popularity in tech house tracks.
+I first tried a linear regression model to predict popularity using features like Danceability, Energy, and Speechiness. However, the model didn’t perform well, with an R-squared of just 0.03, meaning it could only explain 3% of the variation in popularity. This suggests that the relationship between these features and popularity is more complex and likely non-linear.
 
 <figure>
     <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/linear_regression.jpg" alt="">
@@ -134,7 +134,10 @@ I first tried a linear regression model to predict popularity using features lik
 
 The Random Forest model performed better and showed a higher R-squared. This improvement supports the idea that non-linear relationships exist between the features and popularity within these curated playlists.
 
-Code Chunk Suggestion: Include code for the Random Forest model along with output for the R-squared value and feature importance rankings.
+<figure>
+    <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/Forest2.jpg" alt="">
+</figure>
+
 
 ### Feature Importances
 
@@ -148,4 +151,7 @@ The feature importance plot from the Random Forest model highlighted Danceabilit
 # Conclusion
 
 Using the Spotify API was a simple way to get detailed data on tech house tracks. My analysis showed that Danceability, Speechiness, and Energy play big roles in a song’s popularity. Tracks with strong beats and catchy vocal hooks tend to perform better on playlists. For tech house fans or producers, it’s cool to see which elements can make a track stand out!
+
+## Links
+
 
