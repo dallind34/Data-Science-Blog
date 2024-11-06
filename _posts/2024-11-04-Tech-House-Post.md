@@ -153,5 +153,7 @@ The feature importance plot from the Random Forest model highlighted Danceabilit
 Using the Spotify API was a simple way to get detailed data on tech house tracks. My analysis showed that Danceability, Speechiness, and Energy play big roles in a song’s popularity. Tracks with strong beats and catchy vocal hooks tend to perform better on playlists. For tech house fans or producers, it’s cool to see which elements can make a track stand out!
 
 ## Links
-
+[Spotify API](https://developer.spotify.com/documentation/web-api)
+[History of Tech House](https://www.beatportal.com/articles/60692-beatports-definitive-history-of-tech-house)
+[Tech House Groovy Bangers Spotify Playlist](https://open.spotify.com/playlist/0TOtvml0WfdY0OK6hcB0uV?si=3670ea226919484f)
 
