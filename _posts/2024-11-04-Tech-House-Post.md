@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Tech House"
+title:  "Tech House Playlist Analysis and Spotify API"
 author: Dallin Draper
 description: In this post, I teach you how to use the Spotify API to collect data from popular tech house songs and analyze which features contribute to their success on playlists. I break down the process step-by-step and explore key elements like Danceability, Energy, and Speechiness to understand what makes a track stand out. 
 image: "/assets/images/dj.jpg"
