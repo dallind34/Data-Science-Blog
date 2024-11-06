@@ -55,7 +55,7 @@ for metric, value in analysis_results.items():
 
 plt.figure(figsize=(10, 6))
 sns.histplot(data['Tempo'], bins=40, kde=True, color="skyblue")
-plt.xlim(115, 140)  # Limit the x-axis to the 115-140 BPM range
+plt.xlim(115, 140) 
 plt.title('Distribution of Tempo for Tech House Songs')
 plt.xlabel('Tempo (BPM)')
 plt.ylabel('Count')
@@ -63,7 +63,6 @@ plt.show()
 
 data['Key_Name'] = data['Key'].map(key_mapping)
 
-# Plot for Key distribution
 plt.figure(figsize=(10, 6))
 sns.countplot(data=data, x='Key_Name', order=[key_mapping[i] for i in range(12)], palette="viridis")
 plt.title('Distribution of Keys for Tech House Songs')
