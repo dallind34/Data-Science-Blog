@@ -2,7 +2,7 @@
 layout: post
 title:  "Tech House"
 author: Dallin Draper
-description: A sample post with instructions and tips on how to create a new blog post. 
+description: In this post, I teach you how to use the Spotify API to collect data from popular tech house songs and analyze which features contribute to their success on playlists. I break down the process step-by-step and explore key elements like Danceability, Energy, and Speechiness to understand what makes a track stand out. 
 image: "/assets/images/dj.jpg"
 ---
 
@@ -154,6 +154,8 @@ Using the Spotify API was a simple way to get detailed data on tech house tracks
 
 ## Links
 [Spotify API](https://developer.spotify.com/documentation/web-api)
+
 [History of Tech House](https://www.beatportal.com/articles/60692-beatports-definitive-history-of-tech-house)
+
 [Tech House Groovy Bangers Spotify Playlist](https://open.spotify.com/playlist/0TOtvml0WfdY0OK6hcB0uV?si=3670ea226919484f)
 
