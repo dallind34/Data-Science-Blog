@@ -160,3 +160,8 @@ Using the Spotify API was a simple way to get detailed data on tech house tracks
 [Tech House Groovy Bangers Spotify Playlist](https://open.spotify.com/playlist/0TOtvml0WfdY0OK6hcB0uV?si=3670ea226919484f)
 
 ## Note
+All code for this project can be found in my github repository under my Data Science Blog in a folder called Code.
+
+My dataset can also be found here.
+
+[Link To Code Repository](https://github.com/dallind34/Data-Science-Blog/tree/main/code/API%20Project%20-%20Tech%20House)
