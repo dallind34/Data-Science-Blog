@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Tech House Playlist Analysis and Spotify API"
+title:  "Beats, Drops, and Data: Analyzing Tech House Hits with the Spotify API"
 author: Dallin Draper
 description: In this post, I teach you how to use the Spotify API to collect data from popular tech house songs and analyze which features contribute to their success on playlists. I break down the process step-by-step and explore key elements like Danceability, Energy, and Speechiness to understand what makes a track stand out. 
 image: "/assets/images/dj.jpg"
@@ -87,17 +87,19 @@ Here's some example code:
 
 # Variable Information
 
-Danceability: Measures how suitable a track is for dancing, based on elements like tempo, rhythm stability, and beat strength.
+Danceability: Measures how suitable a track is for dancing, based on elements like tempo, rhythm stability, and beat strength, scored from 0 to 1.
 
-Energy: Captures the intensity and activity of the track, with higher values indicating more energetic songs.
+Energy: Captures the intensity and activity of the track, with higher values (0 to 1) indicating more energetic songs characterized by faster, louder, and more dynamic elements.
 
-Loudness: Average loudness in decibels (dB).
+Loudness: Average loudness of the track, measured in decibels (dB), reflecting its overall volume level.
 
-Tempo: The track’s speed measured in beats per minute (BPM) (typically around 120-130 BPM for tech house).
+Tempo: The track’s speed, measured in beats per minute (BPM), typically falling between 120-130 BPM for tech house.
 
-Valence: Measures the mood of the track. Higher values indicate happier or more upbeat tones, while lower values suggest darker tones.
+Valence: Measures the mood of the track, with scores from 0 to 1; higher values indicate happier or more upbeat tones, while lower values suggest darker or more somber moods.
 
-Speechiness: Assesses the presence of spoken words or vocal samples in the track. Tracks with more spoken elements can have a higher speechiness score.
+Speechiness: Assesses the presence of spoken words or vocal samples, with higher scores (0 to 1) indicating tracks that contain more speech-like elements.
+
+Popularity: Measures how popular a track is on Spotify, with scores from 0 to 100 based on factors like play count, recency of streams, and user interactions such as saves.
 
 
 # Analysis
@@ -151,6 +153,10 @@ The feature importance plot from the Random Forest model highlighted Danceabilit
 # Conclusion
 
 Using the Spotify API was a simple way to get detailed data on tech house tracks. My analysis showed that Danceability, Speechiness, and Energy play big roles in a song’s popularity. Tracks with strong beats and catchy vocal hooks tend to perform better on playlists. For tech house fans or producers, it’s cool to see which elements can make a track stand out!
+
+If you’re a music producer or a data enthusiast, try exploring the Spotify API yourself to uncover insights about your favorite genres! You might be surprised by what you find!
+
+I also encourage you all to learn more about Tech House below.
 
 ## Links
 [Spotify API](https://developer.spotify.com/documentation/web-api)
