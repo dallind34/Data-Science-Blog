@@ -1,153 +1,147 @@
 ---
 layout: post
-title:  "Beats, Drops, and Data: Analyzing Tech House Hits with the Spotify API"
+title:  "Data Meets Dance: Exploring Tech House Data Using Streamlit"
 author: Dallin Draper
-description: In this post, I teach you how to use the Spotify API to collect data from popular tech house songs and analyze which features contribute to their success on playlists. I break down the process step-by-step and explore key elements like Danceability, Energy, and Speechiness to understand what makes a track stand out. 
-image: "/assets/images/dj.jpg"
+description: This post explores the characteristics that make tech house tracks successful, focusing on insights like the importance of danceability, energy, and tempo. It introduces an interactive Streamlit app where users can filter, visualize, and rank tracks to uncover trends and gain a deeper understanding of what defines popular tech house music. 
+image: "/assets/images/header3.jpg"
 ---
 
+# Recap
 
-# What is Tech House?
+In my previous blog post, I set out to answer the question: What features of a tech house song contribute most to its success on Spotify playlists? Using the Spotify API, I collected data on audio features from tracks featured on popular tech house playlists. My initial analysis highlighted trends like average tempo and key distributions, and I built machine learning models to predict track popularity based on these features. This post builds on those findings, focusing on key insights and introducing an interactive Streamlit app that lets users explore the data in depth.
 
-Tech house is a genre that blends the danceable beats of classic house music with the darker, more minimalistic genre techno. The main features of the genre are deep basslines, classic house rhythms, and catchy vocal samples. It’s also somewhat formulaic, with most tracks moving through buildups to create tension and bass drops to keep energy high. As someone who makes tech house music, the formulaic nature of the genre is exactly why I wanted to analyze it to see which elements really make a track stand out.
+# Importance of Danceability, Energy, and Speechiness
 
+A Random Forest model revealed that Danceability, Energy, and Speechiness are the top three features influencing a track's popularity on Spotify. These features consistently emerged as the most important predictors, significantly outweighing others like Valence or Tempo.
 
-# Motivating Question
+## Visualizations
 
-The main question I am hoping to answer with this analysis is: What features of a tech house song contribute most to its success on Spotify playlists? By analyzing a dataset of songs from 3 of the most popular tech house Spotify playlists, I hope to find out which musical elements are most associated with a song's popularity. This knowledge could help producers and offer insights into how specific musical features might enhance a tech house song's chances of climbing the ranks of tech house Spotify playlists. 
+Below is a feature importance plot from the Random Forest model:
 
+<figure>
+    <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/forest.jpg" alt="">
+</figure>
 
-# Data Collection & Tutorial
+The plot illustrates that Danceability has the highest importance score, followed by Energy and Speechiness. Together, these three features explain much of the variance in popularity scores compared to other audio features.
 
-## Ethics
+## Interpretation
 
-I used the official Spotify API, which is an approved way to access Spotify’s music data without any sketchy workarounds. By sticking to Spotify’s usage policies, I was able to pull detailed info on audio features for tech house tracks while staying within their terms of service. This approach let me gather the data I needed responsibly, without any unauthorized scraping or misuse.
+Danceability: Tracks that are easier to dance to, with stable rhythms and strong beats, naturally appeal to tech house fans who prioritize groove and flow in music.
 
-Here’s a step-by-step guide on using the Spotify API to create a custom dataset. I gathered my dataset using this process:
+Energy: High-energy tracks are more engaging and dynamic, often leading to better reception in clubs and playlists.
 
-## Packages
+Speechiness: Vocal samples or spoken-word elements add a unique character to tracks, making them stand out and more memorable to listeners.
 
-In Python, I used requests to interact with the Spotify API, pandas to structure and analyze the data, and json to handle Spotify’s JSON data format. Using these packages made it easy to request, process, and store data for analysis.
+These findings suggest that tech house producers aiming for playlist success should prioritize crafting tracks with high danceability, energetic beats, and catchy vocal elements.
 
-### Step 1:Set Up a Spotify Developer Account
+# Common Musical Characteristics
 
-- Go to the Spotify Developer Dashboard and log in or create a Spotify account.
+## Key and Tempo
 
-- In the dashboard, create a new application to access your API credentials, which include your Client ID and Client Secret. Keep these secure, as they allow access to the API.
+A closer look at the dataset revealed that the most popular key among tech house tracks is C♯ / D♭, and the average tempo is approximately 128 BPM. These findings align with the genre's focus on deep basslines and danceable beats.
 
-### Step 2: Authenticate and Get an Access Token
+## Visualizations
 
-Use the requests library in Python to exchange your credentials for an access token. This token will be used to authorize your data requests.
-
-Here’s some example code:
-
-    import spotipy
-    from spotipy.oauth2 import SpotifyClientCredentials
-    import pandas as pd
-
-    # Replace these with your own Spotify API credentials
-    client_id = 'YOUR_CLIENT_ID'
-    client_secret = 'YOUR_CLIENT_SECRET'
-
-    auth_manager = SpotifyClientCredentials(client_id=client_id, client_secret=client_secret)
-    sp = spotipy.Spotify(auth_manager=auth_manager)
-
-### Step 3: Choose a Playlist and Get Data
-
-- Use the playlist’s unique ID in your URL to access track data. 
-
-- Use the /playlists/{playlist_id}/tracks endpoint to retrieve track information and /audio-features for detailed audio metrics.
-
-Here's some example code:
-
-    playlist_id = 'YOUR_PLAYLIST_ID'
-    base_url = f'https://api.spotify.com/v1/playlists/{playlist_id}/tracks'
-    response = requests.get(base_url, headers=headers)
-    tracks = response.json()
-
-### Step 4: Get Features From Each Track
-
-- For each track, use its unique track ID to request additional details from the /audio-features endpoint.
-
-- This allowed me to access audio features for each song such as Tempo, Danceability, Energy, Loudness, Valence, and Speechiness.
-
-        track_id = 'YOUR_TRACK_ID'
-        features_url = f'https://api.spotify.com/v1/audio-features/{track_id}'
-    
-### Step 5: Organize the Data
-
-- Store the data in a structured format using a pandas DataFrame, then save it as a CSV for further analysis.
-
-        import pandas as pd
-
-        data = {'Track Name': track_name, 'Tempo': tempo, 'Danceability': danceability, ...}
-        df = pd.DataFrame(data)
-        df.to_csv('tech_house_tracks.csv', index=False)
-
-
-# Variable Information
-
-Danceability: Measures how suitable a track is for dancing, based on elements like tempo, rhythm stability, and beat strength, scored from 0 to 1.
-
-Energy: Captures the intensity and activity of the track, with higher values (0 to 1) indicating more energetic songs characterized by faster, louder, and more dynamic elements.
-
-Loudness: Average loudness of the track, measured in decibels (dB), reflecting its overall volume level.
-
-Tempo: The track’s speed, measured in beats per minute (BPM), typically falling between 120-130 BPM for tech house.
-
-Valence: Measures the mood of the track, with scores from 0 to 1; higher values indicate happier or more upbeat tones, while lower values suggest darker or more somber moods.
-
-Speechiness: Assesses the presence of spoken words or vocal samples, with higher scores (0 to 1) indicating tracks that contain more speech-like elements.
-
-Popularity: Measures how popular a track is on Spotify, with scores from 0 to 100 based on factors like play count, recency of streams, and user interactions such as saves.
-
-
-# Analysis
- 
-To get a sense of the musical characteristics shared by the most popular tech house songs on Spotify’s top playlists, I looked at some basic statistics:
-
-Most Popular Key: The most common key among these top tracks was C♯ / D♭. This is a very low key for house music and is consistent with the idea that tech house focuses on deep basslines.
+Below are histograms showcasing the distribution of keys and tempos for the analyzed tracks:
 
 <figure>
     <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/key.jpg" alt="">
 </figure>
 
-Average Tempo: The average tempo for these tracks is around 128 BPM. My inital assumption that the average house song would be around 124 BPM so tech house might be slightly faster.
-
 <figure>
     <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/tempo.jpg" alt="">
 </figure>
 
-Most Popular Mode: Major mode was the most common among these songs. This really surprised me and I amost wonder if the Spotify data is correct because most tech house songs I know are in minor or phrygian. 
+
+The key histogram shows a clear preference for the C♯ / D♭ key, while the tempo histogram illustrates that most tracks cluster around 128 BPM, with few outliers.
+
+## Interpretation
+
+Key: The preference for C♯ / D♭ aligns with tech house's deep and resonant basslines, which often define the genre's aesthetic.
+Tempo: The average tempo of 128 BPM falls within the expected range for tech house, striking a balance between energy and groove.
+For music producers, this insight is valuable when deciding on the key and tempo of a track to ensure it aligns with the expectations of tech house listeners and playlist curators.
 
 
-## Exploratory Data Analysis (EDA)
+# Introducing the Tech House Song Analysis Streamlit App
 
-### Linear Regression Model
-  
-I first tried a linear regression model to predict popularity using features like Danceability, Energy, and Speechiness. However, the model didn’t perform well, with an R-squared of just 0.03, meaning it could only explain 3% of the variation in popularity. This suggests that the relationship between these features and popularity is more complex and likely non-linear.
+## Purpose of the App
 
-<figure>
-    <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/linear_regression.jpg" alt="">
-</figure>
+[The Tech House Analysis Dashboard](https://www.beatportal.com/articles/60692-beatports-definitive-history-of-tech-house) is an interactive tool designed to explore the audio and popularity features of tech house tracks collected from Spotify playlists. This app allows users to uncover trends and patterns in key musical elements like tempo, energy, and danceability that contribute to a song's success in this genre. By offering data-driven insights, the app aims to help music enthusiasts, producers, and data analysts better understand the characteristics of popular tech house tracks.
 
+# What Can This App Do?
 
-### Random Forest Model
-
-The Random Forest model performed better and showed a higher R-squared. This improvement supports the idea that non-linear relationships exist between the features and popularity within these curated playlists.
-
-<figure>
-    <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/Forest2.jpg" alt="">
-</figure>
-
-
-### Feature Importances
-
-The feature importance plot from the Random Forest model highlighted Danceability, Energy, and Speechiness as the most influential features in determining a song’s popularity:
+The app is divided into four sections, each can be accessed in the dropdown menu.
 
 <figure>
-    <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/forest.jpg" alt="">
+    <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/dropdown.jpg" alt="">
 </figure>
+
+## Dataset Overview:
+
+Automatically displays the filtered dataset based on user-selected keys and tempo ranges.
+Users can view all relevant track details, such as artist name, tempo, energy, danceability, speechiness, and popularity.
+
+<figure>
+    <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/dataset.jpg" alt="">
+</figure>
+
+## Key and Tempo Insights:
+
+Visualize the distribution of musical keys in the dataset using a bar chart.
+Explore the tempo distribution of tracks with an interactive histogram.
+
+<figure>
+    <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/dist.jpg" alt="">
+</figure>
+
+## Feature Exploration:
+
+Select a specific audio feature (e.g., energy, danceability, valence, or speechiness) to analyze its distribution across the dataset.
+The dynamic histogram provides a deeper understanding of how these features vary among tracks.
+
+<figure>
+    <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/feature.jpg" alt="">
+</figure>
+
+## Dynamic Song Ranking:
+
+Rank songs based on any selected feature (e.g., popularity, energy, or danceability).
+Adjust the number of songs displayed using a slider and view the ranked results in a table.
+Explore the top-ranked tracks and their respective artists to gain insights into standout performers.
+
+<figure>
+    <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/ranking.jpg" alt="">
+</figure>
+
+# Exploring the Sidebar Features
+
+The sidebar in the Tech House Song Analysis Dashboard provides users with filtering tools to customize their exploration of the dataset. By adjusting the filters in the sidebar, users can narrow down the data to focus on specific keys or bpms of interest. The sidebar filters apply globally across all sections of the app.
+
+<figure>
+    <img src= "https://dallind34.github.io/Data-Science-Blog/assets/images/sidebar.jpg" alt="">
+</figure>
+
+## What the Sidebar Can Do
+
+### Filter by Key:
+
+Use the menu to choose one or more musical keys to filter the dataset.
+For example, selecting "C♯ / D♭" and "A" will restrict the dataset to only tracks in these keys.
+
+### Filter by Tempo Range:
+
+Adjust the slider to specify a tempo range (in beats per minute or BPM).
+For exaple, setting the range to 120–128 BPM will show only tracks within this tempo range.
+
+
+
+
+
+
+
+
+
+
 
 
 # Conclusion
