@@ -8,7 +8,7 @@ image: "/assets/images/header3.jpg"
 
 # Recap
 
-In my previous blog post, I set out to answer the question: What features of a tech house song contribute most to its success on Spotify playlists? Using the Spotify API, I collected data on audio features from tracks featured on popular tech house playlists. My initial analysis highlighted trends like average tempo and key distributions, and I built machine learning models to predict track popularity based on these features. This post builds on those findings, focusing on key insights and introducing an interactive Streamlit app that lets users explore the data in depth.
+In my previous blog post, I set out to answer the question: What features of a tech house song contribute most to its success on Spotify playlists? Using the Spotify API, I collected data on audio features from tracks featured on popular tech house playlists. My initial analysis highlighted trends like average tempo and key distributions, and I built a random forest model to predict track popularity based on these features. This post builds on those findings, focusing on key insights and introducing an interactive Streamlit app that lets users explore the data in depth.
 
 # Importance of Danceability, Energy, and Speechiness
 
