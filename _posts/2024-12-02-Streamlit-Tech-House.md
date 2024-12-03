@@ -3,7 +3,7 @@ layout: post
 title:  "Data Meets Dance: Exploring Tech House Data Using Streamlit"
 author: Dallin Draper
 description: This post explores the characteristics that make tech house tracks successful, focusing on insights like the importance of danceability, energy, and tempo. It introduces an interactive Streamlit app where users can filter, visualize, and rank tracks to uncover trends and gain a deeper understanding of what defines popular tech house music. 
-image: "/assets/images/header4.jpg"
+image: "/assets/images/header3.jpg"
 ---
 
 # Recap
