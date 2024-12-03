@@ -12,7 +12,7 @@ In my previous blog post, I set out to answer the question: What features of a t
 
 # Importance of Danceability, Energy, and Speechiness
 
-A Random Forest model revealed that Danceability, Energy, and Speechiness are the top three features influencing a track's popularity on Spotify. These features consistently emerged as the most important predictors, significantly outweighing others like Valence or Tempo.
+A Random Forest model revealed that Danceability, Energy, and Speechiness are the top three features influencing a track's popularity on Spotify. These features consistently emerged as the most important predictors and significantly outweighed others like Valence or Tempo.
 
 ## Visualizations
 
@@ -32,13 +32,13 @@ Energy: High-energy tracks are more engaging and dynamic, often leading to bette
 
 Speechiness: Vocal samples or spoken-word elements add a unique character to tracks, making them stand out and more memorable to listeners.
 
-These findings suggest that tech house producers aiming for playlist success should prioritize crafting tracks with high danceability, energetic beats, and catchy vocal elements.
+These findings suggest that tech house producers aiming for playlist success should prioritize making tracks with high danceability, energetic beats, and catchy vocal elements.
 
 # Common Musical Characteristics
 
 ## Key and Tempo
 
-A closer look at the dataset revealed that the most popular key among tech house tracks is C♯ / D♭, and the average tempo is approximately 128 BPM. These findings align with the genre's focus on deep basslines and danceable beats.
+A closer look at the dataset revealed that the most popular key among tech house tracks is C♯ / D♭, and the average tempo is approximately 128 BPM. 
 
 ## Visualizations
 
@@ -59,6 +59,7 @@ The key histogram shows a clear preference for the C♯ / D♭ key, while the te
 
 Key: The preference for C♯ / D♭ aligns with tech house's deep and resonant basslines, which often define the genre's aesthetic.
 Tempo: The average tempo of 128 BPM falls within the expected range for tech house, striking a balance between energy and groove.
+
 For music producers, this insight is valuable when deciding on the key and tempo of a track to ensure it aligns with the expectations of tech house listeners and playlist curators.
 
 
@@ -66,7 +67,9 @@ For music producers, this insight is valuable when deciding on the key and tempo
 
 ## Purpose of the App
 
-[The Tech House Analysis Dashboard](https://www.beatportal.com/articles/60692-beatports-definitive-history-of-tech-house) is an interactive tool designed to explore the audio and popularity features of tech house tracks collected from Spotify playlists. This app allows users to uncover trends and patterns in key musical elements like tempo, energy, and danceability that contribute to a song's success in this genre. By offering data-driven insights, the app aims to help music enthusiasts, producers, and data analysts better understand the characteristics of popular tech house tracks.
+[The Tech House Analysis Dashboard](https://appapp-rheflqbfwscekp7ju7itzz.streamlit.app/) is an interactive tool designed to explore the audio and popularity features of tech house tracks collected from Spotify playlists. This app allows users to uncover trends and patterns in key musical elements like tempo, energy, and danceability that contribute to a song's success in this genre. 
+
+Access the app here: (https://appapp-rheflqbfwscekp7ju7itzz.streamlit.app/)
 
 # What Can This App Do?
 
@@ -133,35 +136,20 @@ For example, selecting "C♯ / D♭" and "A" will restrict the dataset to only t
 Adjust the slider to specify a tempo range (in beats per minute or BPM).
 For exaple, setting the range to 120–128 BPM will show only tracks within this tempo range.
 
-
-
-
-
-
-
-
-
-
-
-
 # Conclusion
 
-Using the Spotify API was a simple way to get detailed data on tech house tracks. My analysis showed that Danceability, Speechiness, and Energy play big roles in a song’s popularity. Tracks with strong beats and catchy vocal hooks tend to perform better on playlists. For tech house fans or producers, it’s cool to see which elements can make a track stand out!
+The Tech House Song Analysis Dashboard demonstrates the power of combining data and interactivity to uncover meaningful insights about what makes tech house tracks successful. With features like dynamic filtering, visualizations, and song rankings, the app empowers users to explore key musical elements like danceability, tempo, and energy at their own pace. Whether you're a producer fine-tuning your next track or a fan curious about the genre's defining traits, the dashboard provides a hands-on way to dive into the data.
 
-If you’re a music producer or a data enthusiast, try exploring the Spotify API yourself to uncover insights about your favorite genres! You might be surprised by what you find!
-
-I also encourage you all to learn more about Tech House below.
-
-## Links
-[Spotify API](https://developer.spotify.com/documentation/web-api)
-
-[History of Tech House](https://www.beatportal.com/articles/60692-beatports-definitive-history-of-tech-house)
-
-[Tech House Groovy Bangers Spotify Playlist](https://open.spotify.com/playlist/0TOtvml0WfdY0OK6hcB0uV?si=3670ea226919484f)
+Ready to explore the beats and patterns that drive tech house? Try the app now and uncover your own insights! Click [here](https://appapp-rheflqbfwscekp7ju7itzz.streamlit.app/) to start your journey into data-driven music exploration.
 
 ## Note
+
 All code for this project can be found in my github repository under my Data Science Blog in a folder called Code.
 
 My dataset can also be found here.
 
-[Link To Code Repository](https://github.com/dallind34/Data-Science-Blog/tree/main/code/API%20Project%20-%20Tech%20House)
+[Link To Code Repository and Data](https://github.com/dallind34/Data-Science-Blog/tree/main/code/API%20Project%20-%20Tech%20House)
+
+[Link To Streamlit App Repository](https://github.com/dallind34/Tech_House_Streamlit)
+
+[Link To The Streamlit App](https://appapp-rheflqbfwscekp7ju7itzz.streamlit.app/)
